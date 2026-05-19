@@ -1,3 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
+body {
+  font: Nunito;
+  background-color: rgb(241, 235, 235);
+}
 
-/*# sourceMappingURL=style.css.map */
+.header {
+  background-color: rgb(204, 197, 197);
+  box-shadow: 0 0 10px whitesmoke;
+  width: 100%;
+  position: fixed;
+  box-sizing: border-box;
+}
+.header .header-logo img {
+  float: left;
+  width: 15%;
+  padding-bottom: 6px;
+}
+.header .header-menu img {
+  width: 15%;
+  float: right;
+  border: 2px solid orangered;
+  border-radius: 10px;
+  padding: 5px;
+}
+.header .header-nav {
+  display: none;
+  width: 100%;
+}
+.header .header-nav ul {
+  list-style: none;
+}
+.header .header-nav ul li {
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px orangered;
+}
+.header .header-nav ul li a {
+  color: orangered;
+  text-decoration: none;
+  font-family: "Nunito", Arial, Helvetica, sans-serif;
+}
+
+.mostrar {
+  display: inline-block !important;
+}
+
+@media (min-width: 480px) and (max-width: 1920px) {
+  .header .header-menu {
+    display: none;
+  }
+  .header .header-nav {
+    width: auto;
+    float: right;
+    display: block;
+  }
+  .header .header-nav ul li {
+    padding: 20px;
+    animation: 2s;
+    display: inline-block;
+  }
+  .header .header-nav ul li a:hover {
+    color: white;
+  }
+}/*# sourceMappingURL=style.css.map */
