@@ -1,4 +1,4 @@
 <div class="container">
     <img src="imgs/404.png" alt="Paginá não encontrada">
-    <p>A página que vc está tentando encontrar não existe</p>
+    <h2>A página que vc está tentando encontrar não existe</h2>
 </div>
