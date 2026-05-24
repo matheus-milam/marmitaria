@@ -1,6 +1,11 @@
 <div class="container">
-        <section class="banner">
+        <div class="banner">
         <img src="imgs/home.png" alt="home-img">
-        </section>
-        <h2>Home</h2>
+        </div>
+        <h2>Bem vindos a marmitaria Sabôr do Céu</h2>
+        <div class="banner">
+                <a href="index.php?pagina=cardapio" title="Feijoada">
+                        <img src="imgs/feijoada.jpg" alt="Feijoada">
+                </a>
+        </div>
 </div>
