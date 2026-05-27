@@ -2,11 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 
 body {
-    font: Nunito;
-    background-color: rgb(241, 235, 235);
+    background-color: #81c784;
     margin-top: 125px;
     min-height: 100vh;
     display: flex;
@@ -19,6 +19,7 @@ main {
     padding-top: 130px;
 
 }
+
 .header {
     background-color: #4caf50;
     box-shadow: 0 0 5px #4caf50;
@@ -27,6 +28,8 @@ main {
     position: fixed;
     box-sizing: border-box;
     top: 0; 
+   
+    
     & &-logo {
         img {
             float: left;
@@ -48,19 +51,19 @@ main {
     display: none;
     width: 100%;
     background-color: #4caf50;
-
+    align-items: center;
     ul {
         list-style: none;
         
         li {
-            padding: 7px;
+            padding: 15px;
             box-sizing: border-box;
             border: 2px orangered;
             
             a {
                 color: rgb(228, 61, 0);
                 text-decoration: none;
-                font-family: "Nunito", Arial, Helvetica, sans-serif;
+                font-family: "Akt", Arial, Helvetica, sans-serif;
                 
             }
         }
@@ -77,15 +80,17 @@ main {
     box-sizing: border-box;
     position: relative;
     font-size: 15px;
-    font-family: "Nunito", arial;
+    font-family: "Akt", arial;
 }
 
 .container {
     width: 90%;
     margin: 40px auto;
+    background-color: #81c784;
     h2 {
     color: #ff6f00;
     text-align: center;
+    
 }
 
 .banner {
@@ -93,6 +98,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #81c784;
     img {
         width: 100%;
         border-radius: 30px;
@@ -101,6 +107,12 @@ main {
     text-align: center;
     text-decoration: none;
     color: #ff6f00;    
+}
+a {
+    font-family: "Akt", Arial, Helvetica, sans-serif;
+}
+a:hover {
+    color: grey;
 }
 }
 
@@ -118,6 +130,7 @@ main {
 h2 {
     color: #ff6f00;
     text-align: center;
+    font-family: "Akt", Arial, Helvetica, sans-serif;
 }
 
 

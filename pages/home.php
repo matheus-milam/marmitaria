@@ -1,6 +1,5 @@
 <div class="container">
         <div class="banner">
-        <img src="imgs/home.png" alt="home-img">
         <a href="index.php?pagina=cardapio" title="verCardapio" class="text-feijoada">
                         Clique aqui para ver o cardápio
                 </a>
