@@ -1,3 +1,4 @@
+<main class="pagina-home">
 <div class="container">
         <div class="banner">
         <a href="index.php?pagina=cardapio" title="verCardapio" class="text-feijoada">
@@ -13,3 +14,4 @@
               
         </div>
 </div>
+</main>

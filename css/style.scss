@@ -1,12 +1,21 @@
+//verde = #4caf50
+//laranja a = rgb(228, 61, 0)
+//verde claro = #81c784
+
+
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     
 }
-
+html {
+    background-color: lightgreen;
+}
 body {
-    background-color: #81c784;
+    background-color: lightgreen;
     margin-top: 125px;
     min-height: 100vh;
     display: flex;
@@ -17,59 +26,11 @@ body {
 main {
     flex: 1;
     padding-top: 130px;
-
 }
 
-.header {
-    background-color: #4caf50;
-    box-shadow: 0 0 5px #4caf50;
-    width: 100%;
-    height: 15%;
-    position: fixed;
-    box-sizing: border-box;
-    top: 0; 
-   
-    
-    & &-logo {
-        img {
-            float: left;
-            width: 40%;
-            padding-bottom: 2px;
-    }
-}
-    & &-menu {
-       img{ 
-        width: 15%;
-        float: right;
-        border: 2px solid orangered;
-        border-radius: 10px;
-        padding: 5px;
-    }
-}
 
-& &-nav {
-    display: none;
-    width: 100%;
-    background-color: #4caf50;
-    align-items: center;
-    ul {
-        list-style: none;
-        
-        li {
-            padding: 15px;
-            box-sizing: border-box;
-            border: 2px orangered;
-            
-            a {
-                color: rgb(228, 61, 0);
-                text-decoration: none;
-                font-family: "Akt", Arial, Helvetica, sans-serif;
-                
-            }
-        }
-    }
-}
-}
+
+
 
 .footer {
     color: rgb(228, 61, 0);
@@ -133,47 +94,28 @@ h2 {
     font-family: "Akt", Arial, Helvetica, sans-serif;
 }
 
-
-
-
-
-.mostrar {
-    display: inline-block !important;
+.navbar {
+    a {
+        color: white;
+    }
 }
+.nav-item {
+    a {
+        color: white;
+        transition: 0.3s;
+    }
+    a:hover {
+        color: #1b4332;
+    }
+}
+
+
+
+
 @media (min-width: 580px) and (max-width: 1920px)  {
     .header {
         display: flex;
         
-        & &-menu {
-            display: none;
-        }
-        & &-nav {
-            width: auto;
-            float: right;
-            display: flex;
-          
-            ul {
-                
-                li {
-                    padding: 40px;
-                    display: inline-block;
-                    border: 0;
-                    
-                    a {
-                        font-size: 15px;
-                    }
-                    a:hover{
-                        color: white;
-                    }
-                }
-            }
-        }
-        & &-logo {
-            img {
-                width: 110px;
-                
-            }
-        }
     }
     .container {
     width: 1000px;
