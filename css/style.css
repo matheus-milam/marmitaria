@@ -14,7 +14,6 @@ body {
 
 main {
   flex: 1;
-  padding-top: 130px;
 }
 
 .footer {
@@ -30,8 +29,8 @@ main {
 }
 
 .container {
-  width: 90%;
-  margin: 40px auto;
+  padding-top: 130px;
+  font-family: "Akt", sans-serif;
 }
 .container h2 {
   color: #ff6f00;
@@ -68,12 +67,13 @@ main {
 }
 
 .hero {
-  margin-top: 78px;
+  margin-top: 0 !important;
   background-image: url("../imgs/fundoHome.png");
   background-position: center;
   background-size: cover;
   color: #1B5E20;
   font-family: "Akt", Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 h2 {
@@ -83,6 +83,8 @@ h2 {
 
 .navbar {
   font-family: "Montserrat", sans-serif;
+  position: relative;
+  height: 80px;
 }
 .navbar a {
   color: white;

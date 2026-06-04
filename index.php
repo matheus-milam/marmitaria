@@ -50,7 +50,7 @@
           </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.php?semana.php">Marmitas da Semana</a>
+            <a class="nav-link" href="index.php?pagina=semana">Marmitas da Semana</a>
         </li>
       </ul> 
     </div>
