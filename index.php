@@ -18,11 +18,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Akt:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
         <title>Sabôr do Céu</title>
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg border-bottom shadow" style="background-color: #2d6a4f;" data-bs-theme="light">
+        <nav class="navbar navbar-expand-lg border-bottom shadow" style="background-color: #2f6d4e;" data-bs-theme="light">
         <div class="container-fluid">
              <a class="navbar-brand" href="index.php?pagina=home">
                 <img src="imgs/logoheadermenor.png" alt="Sabor do Céu" width="70px">
@@ -52,13 +53,11 @@
             <a class="nav-link" href="index.php?semana.php">Marmitas da Semana</a>
         </li>
       </ul> 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Digite aqui..." aria-label="Search"/>
-        <button class="btn btn-light"   style="background-color: #2d6a4f;" type="submit">Buscar</button>
-      </form>
     </div>
   </div>
 </nav>
+
+
 
     <main>
     <?php
@@ -74,7 +73,7 @@
     ?>
 </main>
 
-<footer class="bg-green p-3">
+<footer class=" p-3" style="background-color: #2d6a4f;">
     <p class="text-center"><? date("Y") ?> Desenvolvido por Matheus Milam | Todos os direitos reservados</p>
     
 

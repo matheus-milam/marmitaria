@@ -1,17 +1,30 @@
-<main class="pagina-home">
-<div class="container">
-        <div class="banner">
-        <a href="index.php?pagina=cardapio" title="verCardapio" class="text-feijoada">
-                        Clique aqui para ver o cardápio
-                </a>
-        </div>
+
+
+<section class="hero fixed-top">
         
-        <div class="banner">
-                <a href="index.php?pagina=cardapio" title="Feijoada">
-                        <img src="imgs/feijoada.jpg" alt="Feijoada">
-                
-                </a>
-              
+        <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                        <div class="col-md-6 mt-n5 text-shadow">
+                                <h1 class="display-3 fw-bold" style="color: orange;">
+                                        Sabor do Céu
+                                </h1>   
+                                <h2 class="display fw-bold">
+                                        Sabor que Alimenta
+                                        e Encanta
+                                </h2>
+                                <p class="lead">
+                                        Almoço saboroso, fresquinho e preparado especialmente para você.
+                                </p>
+                                  <a href="index.php?pagina=cardapio" class="btn btn-success btn-lg">     
+                                         Ver Cardápio
+                                </a>
+                        </div>
+                </div>
         </div>
-</div>
-</main>
+</section>
+
+<section class="hero">
+        <div class="container h-100">
+                
+        </div>
+</section>

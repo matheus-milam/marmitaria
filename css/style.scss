@@ -12,15 +12,14 @@
     
 }
 html {
-    background-color: lightgreen;
+    
 }
 body {
-    background-color: lightgreen;
-    margin-top: 125px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
+    background-color: red;
 }
 
 main {
@@ -47,19 +46,17 @@ main {
 .container {
     width: 90%;
     margin: 40px auto;
-    background-color: #81c784;
     h2 {
     color: #ff6f00;
     text-align: center;
     
-}
+}   
 
 .banner {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #81c784;
     img {
         width: 100%;
         border-radius: 30px;
@@ -88,13 +85,25 @@ a:hover {
     }
 }
 
+
+.hero {
+    margin-top: 78px;
+    background-image: url('../imgs/fundoHome.png');
+    background-position: center;
+    background-size: cover;
+    color: #1B5E20;
+    font-family: 'Akt', Arial, Helvetica, sans-serif;
+
+}
+
 h2 {
     color: #ff6f00;
-    text-align: center;
+    
     font-family: "Akt", Arial, Helvetica, sans-serif;
 }
 
 .navbar {
+    font-family: 'Montserrat', sans-serif;
     a {
         color: white;
     }
@@ -109,25 +118,6 @@ h2 {
     }
 }
 
-
-
-
-@media (min-width: 580px) and (max-width: 1920px)  {
-    .header {
-        display: flex;
-        
-    }
-    .container {
-    width: 1000px;
-    margin: 40px auto;
-    h2 {
-    color: #ff6f00;
-    text-align: center;
-}
-}
- .text-feijoada {
-    padding-left: 300px;
-    text-decoration: none;
-    color: #ff6f00;    
-}
+.dropdown-menu {
+    z-index: 2000 !important;
 }
