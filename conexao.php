@@ -1,0 +1,15 @@
+<?php 
+
+$host = "192.168.1.12";
+$usuario = "root";
+$senha = "1707";
+$banco = "marmitariabd";
+
+$conexao = mysqli_connect($host , $usuario, $senha, $banco);
+
+if(!$conexao) {
+    die("Erro ao conectar com banco de dados" . mysqli_connect_error());
+}
+
+echo "conectado com sucesso";
+?>
