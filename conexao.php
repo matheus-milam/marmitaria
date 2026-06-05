@@ -1,7 +1,7 @@
 <?php 
 
 $host = "192.168.1.12";
-$usuario = "root";
+$usuario = "marmitaria";
 $senha = "1707";
 $banco = "marmitariabd";
 
@@ -11,5 +11,7 @@ if(!$conexao) {
     die("Erro ao conectar com banco de dados" . mysqli_connect_error());
 }
 
-echo "conectado com sucesso";
+
 ?>
+
+
