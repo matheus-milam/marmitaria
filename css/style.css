@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   margin: 0;
   background-color: red;
+  overflow-x: hidden;
 }
 
 main {
@@ -84,7 +85,8 @@ h2 {
 .navbar {
   font-family: "Montserrat", sans-serif;
   position: relative;
-  height: 80px;
+  min-height: 80px;
+  border-bottom: 2px solid #4caf50;
 }
 .navbar a {
   color: white;
@@ -100,4 +102,26 @@ h2 {
 
 .dropdown-menu {
   z-index: 2000 !important;
+}
+
+.container-card {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.container-semana {
+  padding-top: 0;
+  color: #ff6f00;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container-erro {
+  padding-top: 12px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.container-erro img {
+  width: 50%;
 }/*# sourceMappingURL=style.css.map */

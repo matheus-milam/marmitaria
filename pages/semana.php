@@ -1,10 +1,10 @@
 <?php include("conexao.php"); ?>
 
 <section id="cardapio" class="py-5">
-  <div class="container">
+  <div class="container-semana">
     <div class="text-center mb-5">
       <h2 class="fw-bold">Marmitas da Semana</h2>
-      <p class="text-muted">Aqui estão nossas opções da semana</p>
+      <p class="text-muted">Aqui estão nossas opções da semana:</p>
     </div>
 
     <div class="row g-4">
@@ -21,8 +21,8 @@
       ?>
 
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top" alt="Foto da Marmita">
+        <div class="card h-100 shadow-sm border-2">
+          <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top border-1" alt="Foto da Marmita">
 
           <div class="card-body">
             <span class="badge bg-success mb-2">

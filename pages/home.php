@@ -15,8 +15,8 @@
                                 <p class="lead">
                                         Almoço saboroso, fresquinho e preparado especialmente para você.
                                 </p>
-                                  <a href="index.php?pagina=cardapio" class="btn btn-success btn-lg">     
-                                         Ver Cardápio
+                                  <a href="index.php?pagina=semana" class="btn btn-success btn-lg">     
+                                         Ver Marmitas
                                 </a>
                         </div>
                 </div>
@@ -24,7 +24,7 @@
 </section>
 
 <section class="py-5 bg-light">
-        <div class="container">
+        <div class="container-home">
 
         <div class="mb-5 text-center">
                 <h2 class="fw-bold">Por que escolher Sabor do Céu?</h2>
@@ -82,37 +82,45 @@
 
 </section>
 
-<?php include("conexao.php"); ?>
-
-
 <section id="cardapio" class="py-5">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="fw-bold">Marmitas da Semana</h2>
-      <p class="text-muted">Aqui estão nossas opções da semana</p>
+      <h2 class="fw-bold">Marmita do Dia</h2>
+      <p class="text-muted">Aqui está nossa opção do dia:</p>
     </div>
 
     <div class="row g-4">
-      <?php
-      $sql = "SELECT d.nm_dia, m.nm_marmita, m.ds_marmita, m.nr_preco, m.img_marmita
-              FROM dia_marmita dm
-              INNER JOIN diasemana d ON d.id_dia = dm.id_dia
-              INNER JOIN marmita m ON m.id_marmita = dm.id_marmita
-              ORDER BY d.id_dia";
+ <?php
+include("conexao.php");
 
-      $resultado = mysqli_query($conexao, $sql);
+$dias = [
+    'Monday'    => 'Segunda',
+    'Tuesday'   => 'Terça',
+    'Wednesday' => 'Quarta',
+    'Thursday'  => 'Quinta',
+    'Friday'    => 'Sexta',
+    'Saturday'  => 'Sábado',
+    'Sunday'    => 'Domingo'
+];
 
-      while($marmita = mysqli_fetch_assoc($resultado)) {
-      ?>
+$hoje = $dias[date('l')];
 
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top" alt="Foto da Marmita">
+$sql = "SELECT *
+        FROM dia_marmita dm
+        INNER JOIN diasemana d ON d.id_dia = dm.id_dia
+        INNER JOIN marmita m ON m.id_marmita = dm.id_marmita
+        WHERE d.nm_dia = '$hoje'";
 
-          <div class="card-body">
-            <span class="badge bg-success mb-2">
-              <?php echo $marmita['nm_dia']; ?>
-            </span>
+$resultado = mysqli_query($conexao, $sql);
+
+$marmita = mysqli_fetch_assoc($resultado);
+?>
+<div class="container-card">
+ <div class="col-12 col-md-6 col-lg-4" style="align-items: center; display: flex;">
+        <div class="card h-100 shadow-sm border-2">
+          <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top" style="display: flex; justify-content: center;" alt="Foto da Marmita">
+
+
 
             <h5 class="card-title">
               <?php echo $marmita['nm_marmita']; ?>
@@ -128,8 +136,7 @@
           </div>
         </div>
       </div>
-
-      <?php } ?>
+    </div>
     </div>
   </div>
 </section>

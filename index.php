@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <base href="http://localhost/marmitaria/home">
+    <base href="http://localhost/marmitaria/">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,31 +31,34 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?pagina=home">Ìnicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?pagina=contato">Contato</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="index.php?pagina=marmita" role="button" data-bs-toggle="dropdown">
-            Cardápio
-          </a>
-           <ul class="dropdown-menu" style="background-color: #2d6a4f;">
-            <li><a class="dropdown-item" href="index.php?pagina=feijoada">Feijoada</a></li>
-            <li><a class="dropdown-item" href="index.php?pagina=bife">Bife acebolado</a></li>
-            <li><a class="dropdown-item" href="index.php?pagina=frango">Frango com batata</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=semana">Marmitas da Semana</a>
-        </li>
-      </ul> 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?pagina=home">Ìnicio</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="index.php?pagina=semana">Marmitas da Semana</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="index.php?pagina=marmita" role="button" data-bs-toggle="dropdown">
+              Cardápio
+            </a>
+            <ul class="dropdown-menu" style="background-color: #2d6a4f;">
+              <li><a class="dropdown-item" href="index.php?pagina=feijoada">Feijoada</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=bife">Bife acebolado</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=frango">Frango com batata</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=porco">Porco no tacho</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=strogonoff">Strogonoff de Frango</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=boi">Carne de boi com batata</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?pagina=contato">Contato</a>
+          </li>
+        </ul> 
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
 
@@ -74,7 +77,7 @@
 </main>
 
 <footer class=" p-3" style="background-color: #2d6a4f;">
-    <p class="text-center"><? date("Y") ?> Desenvolvido por Matheus Milam | Todos os direitos reservados</p>
+    <p class="text-center"><?=   date('Y') ?> Desenvolvido por Matheus Milam | Todos os direitos reservados</p>
     
 
 </footer>
