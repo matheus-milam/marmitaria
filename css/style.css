@@ -29,6 +29,9 @@ main {
   font-family: "Akt", arial;
 }
 
+.container h1 {
+  font-family: "Instrument Serif", sans-serif;
+}
 .container {
   padding-top: 130px;
   font-family: "Akt", sans-serif;

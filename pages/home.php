@@ -5,9 +5,11 @@
         <div class="container">
                 <div class="row align-items-center">
                         <div class="col-md-6 mt-n5 text-shadow">
+                                
                                 <h1 class="display-3 fw-bold" style="color: orange;">
                                         Sabor do Céu
                                 </h1>   
+                                
                                 <h2 class="display fw-bold">
                                         Sabor que Alimenta
                                         e Encanta

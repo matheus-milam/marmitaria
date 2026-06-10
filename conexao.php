@@ -1,6 +1,6 @@
 <?php 
 
-$host = "10.0.2.15";
+$host = "192.168.56.101";
 $usuario = "marmitaria";
 $senha = "1707";
 $banco = "marmitariabd";
