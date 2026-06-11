@@ -142,3 +142,52 @@ $marmita = mysqli_fetch_assoc($resultado);
     </div>
   </div>
 </section>
+
+<?php 
+
+$bairros = [
+    "Centro" => 2,
+    "Paraná D'Oeste" => 10,
+    "Vila Gianello" => 8,
+    "Vila Belém" => 8
+];
+
+function consultarFrete ($bairros, $bairro) {
+        if (isset($bairros[$bairro])) {
+                return $bairros[$bairro];
+        }
+
+        return 0;
+}
+$bairroSelecionado = $_GET['bairro'] ?? "";
+$frete = consultarFrete($bairros, $bairroSelecionado);
+$total = $marmita['nr_preco'] + $frete;
+?>
+
+<form method="GET" class="mt-3">
+    <input type="hidden" name="pagina" value="home">
+
+    <label class="form-label">Escolha seu bairro:</label>
+
+    <select name="bairro" class="form-select mb-3">
+        <option value="">Selecione</option>
+
+        <?php foreach($bairros as $bairro => $valorFrete) { ?>
+            <option value="<?php echo $bairro; ?>">
+                <?php echo $bairro; ?> - R$ <?php echo number_format($valorFrete, 2, ',', '.'); ?>
+            </option>
+        <?php } ?>
+    </select>
+
+    <button class="btn btn-success" type="submit">
+        Calcular total
+    </button>
+</form>
+
+<?php if($bairroSelecionado != "") { ?>
+    <div class="alert alert-success mt-3">
+        Frete: R$ <?php echo number_format($frete, 2, ',', '.'); ?><br>
+        Total: R$ <?php echo number_format($total, 2, ',', '.'); ?>
+    </div>
+<?php } ?>
+
