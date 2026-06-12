@@ -43,7 +43,7 @@
               <a class="nav-link" href="index.php?pagina=semana">Marmitas da Semana</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="index.php?pagina=marmita" role="button" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
               Cardápio
             </a>
             <ul class="dropdown-menu" style="background-color: #2d6a4f;">
