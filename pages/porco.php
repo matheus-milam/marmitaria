@@ -1,7 +1,4 @@
-<?php include("conexao.php"); ?>
-
-<?php
-include("conexao.php");
+<?php include("conexao.php");
 
 $sql = "SELECT * FROM marmita WHERE nm_marmita = 'Porco no tacho'";
 $resultado = mysqli_query($conexao, $sql);

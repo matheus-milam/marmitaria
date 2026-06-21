@@ -12,7 +12,7 @@
                                 
                                 <h2 class="display fw-bold">
                                         Sabor que Alimenta
-                                        e Encanta
+                                        e Encanta       
                                 </h2>
                                 <p class="lead">
                                         Almoço saboroso, fresquinho e preparado especialmente para você.
@@ -83,67 +83,72 @@
 </div>
 
 </section>
-
-<section id="cardapio" class="py-5">
+    <div class="row g-4">
+ <section id="cardapio" class="py-5">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="fw-bold">Marmita do Dia</h2>
       <p class="text-muted">Aqui está nossa opção do dia:</p>
     </div>
 
-    <div class="row g-4">
- <?php
-include("conexao.php");
+    <?php
+    include("conexao.php");
 
-$dias = [
-    'Monday'    => 'Segunda',
-    'Tuesday'   => 'Terça',
-    'Wednesday' => 'Quarta',
-    'Thursday'  => 'Quinta',
-    'Friday'    => 'Sexta',
-    'Saturday'  => 'Sábado',
-    'Sunday'    => 'Domingo'
-];
+    $dias = [
+        'Monday'    => 'Segunda',
+        'Tuesday'   => 'Terça',
+        'Wednesday' => 'Quarta',
+        'Thursday'  => 'Quinta',
+        'Friday'    => 'Sexta',
+        'Saturday'  => 'Sábado',
+        'Sunday'    => 'Domingo'
+    ];
 
-$hoje = $dias[date('l')];
+    $hoje = "Quarta";
 
-$sql = "SELECT *
-        FROM dia_marmita dm
-        INNER JOIN diasemana d ON d.id_dia = dm.id_dia
-        INNER JOIN marmita m ON m.id_marmita = dm.id_marmita
-        WHERE d.nm_dia = '$hoje'";
+    $sql = "SELECT *
+            FROM dia_marmita dm
+            INNER JOIN diasemana d ON d.id_dia = dm.id_dia
+            INNER JOIN marmita m ON m.id_marmita = dm.id_marmita
+            WHERE d.nm_dia = '$hoje'";
 
-$resultado = mysqli_query($conexao, $sql);
+    $resultado = mysqli_query($conexao, $sql);
+    $marmita = mysqli_fetch_assoc($resultado);
+    ?>
 
-$marmita = mysqli_fetch_assoc($resultado);
-?>
-<div class="container-card">
- <div class="col-12 col-md-6 col-lg-4" style="align-items: center; display: flex;">
-        <div class="card h-100 shadow-sm border-2">
-          <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top" style="display: flex; justify-content: center;" alt="Foto da Marmita">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-4">
 
+        <?php if($marmita) { ?>
+          <div class="card h-100 shadow-sm border-2">
+            <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top" alt="Foto da Marmita">
 
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <?php echo $marmita['nm_marmita']; ?>
+              </h5>
 
-            <h5 class="card-title">
-              <?php echo $marmita['nm_marmita']; ?>
-            </h5>
+              <p class="card-text text-muted">
+                <?php echo $marmita['ds_marmita']; ?>
+              </p>
 
-            <p class="card-text text-muted">
-              <?php echo $marmita['ds_marmita']; ?>
-            </p>
-
-            <p class="fw-bold text-success">
-              R$ <?php echo number_format($marmita['nr_preco'], 2, ',', '.'); ?>
-            </p>
+              <p class="fw-bold text-success">
+                R$ <?php echo number_format($marmita['nr_preco'], 2, ',', '.'); ?>
+              </p>
+            </div>
           </div>
-        </div>
+        <?php } else { ?>
+          <div class="alert alert-warning text-center">
+            Não temos marmita cadastrada para hoje.
+          </div>
+        <?php } ?>
+
       </div>
-    </div>
     </div>
   </div>
 </section>
 
-<?php 
+<?php
 
 $bairros = [
     "Centro" => 2,
@@ -152,42 +157,81 @@ $bairros = [
     "Vila Belém" => 8
 ];
 
-function consultarFrete ($bairros, $bairro) {
-        if (isset($bairros[$bairro])) {
-                return $bairros[$bairro];
-        }
-
+function consultarFrete($bairros, $bairro)
+{
+    if (empty($bairros)) {
         return 0;
+    }
+
+    if (isset($bairros[$bairro])) {
+        return $bairros[$bairro];
+    } else {
+        return 0;
+    }
 }
+
 $bairroSelecionado = $_GET['bairro'] ?? "";
 $frete = consultarFrete($bairros, $bairroSelecionado);
-$total = $marmita['nr_preco'] + $frete;
+
+$total = 0;
+
+if ($marmita && $bairroSelecionado != "") {
+    $total = $marmita['nr_preco'] + $frete;
+}
+
 ?>
 
 <form method="GET" class="mt-3">
+
     <input type="hidden" name="pagina" value="home">
 
-    <label class="form-label">Escolha seu bairro:</label>
+    <label class="form-label">
+        Escolha seu bairro:
+    </label>
 
     <select name="bairro" class="form-select mb-3">
-        <option value="">Selecione</option>
+
+        <option value="">
+            Selecione um bairro
+        </option>
 
         <?php foreach($bairros as $bairro => $valorFrete) { ?>
-            <option value="<?php echo $bairro; ?>">
-                <?php echo $bairro; ?> - R$ <?php echo number_format($valorFrete, 2, ',', '.'); ?>
+
+            <option
+                value="<?php echo $bairro; ?>"
+                <?php echo ($bairroSelecionado == $bairro) ? 'selected' : ''; ?>
+            >
+                <?php echo $bairro; ?>
+                - R$ <?php echo number_format($valorFrete, 2, ',', '.'); ?>
             </option>
+
         <?php } ?>
+
     </select>
 
     <button class="btn btn-success" type="submit">
-        Calcular total
+        Calcular Total
     </button>
+
 </form>
 
-<?php if($bairroSelecionado != "") { ?>
-    <div class="alert alert-success mt-3">
-        Frete: R$ <?php echo number_format($frete, 2, ',', '.'); ?><br>
-        Total: R$ <?php echo number_format($total, 2, ',', '.'); ?>
-    </div>
-<?php } ?>
+<?php if($marmita && $bairroSelecionado != "") { ?>
 
+    <div class="alert alert-success mt-3">
+
+        <strong>Bairro:</strong>
+        <?php echo $bairroSelecionado; ?>
+
+        <br>
+
+        <strong>Frete:</strong>
+        R$ <?php echo number_format($frete, 2, ',', '.'); ?>
+
+        <br>
+
+        <strong>Total:</strong>
+        R$ <?php echo number_format($total, 2, ',', '.'); ?>
+
+    </div>
+
+<?php } ?>
