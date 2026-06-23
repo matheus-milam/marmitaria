@@ -104,7 +104,7 @@
         'Sunday'    => 'Domingo'
     ];
 
-    $hoje = "Quarta";
+    $hoje =  $dias[date('l')];
 
     $sql = "SELECT *
             FROM dia_marmita dm
@@ -157,11 +157,7 @@ $bairros = [
     "Vila Belém" => 8
 ];
 
-function consultarFrete($bairros, $bairro)
-{
-    if (empty($bairros)) {
-        return 0;
-    }
+function consultarFrete($bairros, $bairro){
 
     if (isset($bairros[$bairro])) {
         return $bairros[$bairro];
@@ -175,9 +171,7 @@ $frete = consultarFrete($bairros, $bairroSelecionado);
 
 $total = 0;
 
-if ($marmita && $bairroSelecionado != "") {
-    $total = $marmita['nr_preco'] + $frete;
-}
+$total = $marmita['nr_preco'] + $frete;
 
 ?>
 
@@ -215,7 +209,7 @@ if ($marmita && $bairroSelecionado != "") {
 
 </form>
 
-<?php if($marmita && $bairroSelecionado != "") { ?>
+<?php if($marmita && $bairroSelecionado) { ?>
 
     <div class="alert alert-success mt-3">
 
