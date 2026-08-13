@@ -27,38 +27,51 @@
 </head>
 <body>
         <nav class="navbar navbar-expand-lg border-bottom shadow" style="background-color: #2f6d4e;" data-bs-theme="light">
-        <div class="container-fluid">
-             <a class="navbar-brand" href="index.php?pagina=home">
-                <img src="imgs/logoheadermenor.png" alt="Sabor do Céu" width="70px">
-             </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container-fluid">
+         <a class="navbar-brand" href="index.php?pagina=home">
+            <img src="imgs/logoheadermenor.png" alt="Sabor do Céu" width="70px">
+         </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.php?pagina=home">Ìnicio</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="index.php?pagina=semana">Marmitas da Semana</a>
+            <a class="nav-link" href="index.php?pagina=home">Início</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
               Cardápio
             </a>
             <ul class="dropdown-menu" style="background-color: #2d6a4f;">
-              <li><a class="dropdown-item" href="index.php?pagina=feijoada">Feijoada</a></li>
-              <li><a class="dropdown-item" href="index.php?pagina=bife">Bife acebolado</a></li>
-              <li><a class="dropdown-item" href="index.php?pagina=frango">Frango com batata</a></li>
-              <li><a class="dropdown-item" href="index.php?pagina=porco">Porco no tacho</a></li>
-              <li><a class="dropdown-item" href="index.php?pagina=strogonoff">Strogonoff de Frango</a></li>
-              <li><a class="dropdown-item" href="index.php?pagina=boi">Carne de boi com batata</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=semana">Ver cardápio completo</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=12">Feijoada</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=8">Bife acebolado</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=7">Frango com batata</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=10">Porco no tacho</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=9">Strogonoff de Frango</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=11">Carne de boi com batata</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=13">Lasanha</a></li>
+              <li><a class="dropdown-item" href="index.php?pagina=marmita&id=14">Frango frito</a></li>
             </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?pagina=contato">Contato</a>
           </li>
-        </ul> 
+        </ul>
+
+        <form method="GET" class="d-flex" role="search">
+          <input type="hidden" name="pagina" value="marmita">
+          <input
+            type="text"
+            name="busca"
+            class="form-control me-2"
+            placeholder="Buscar marmita..."
+            aria-label="Buscar"
+          >
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+
       </div>
     </div>
   </nav>
@@ -66,17 +79,16 @@
 
 
     <main>
-    <?php
-        $pagina = $_GET["pagina"] ?? "home";
-        $pagina = "pages/{$pagina}.php";
+      <?php
+    $pagina = $_GET["pagina"] ?? "home";
+    $pagina = "pages/{$pagina}.php";
 
-                
-        if(file_exists($pagina)) {
-        include $pagina;
-        }else {
-        include "pages/erro.php";
-        }
-    ?>
+if(file_exists($pagina)) {
+    include $pagina;
+}else {
+    include "pages/erro.php";
+}
+?>
 </main>
 
 <footer class=" p-3" style="background-color: #2d6a4f;">

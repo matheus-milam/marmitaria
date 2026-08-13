@@ -1,17 +1,13 @@
-<?php 
+<?php
+$host = "localhost";
+$db   = "marmitaria";
+$user = "marmitaria";
+$pass = "1707";
 
-$host = "192.168.56.101";
-$usuario = "marmitaria";
-$senha = "1707";
-$banco = "marmitariabd";
-
-$conexao = mysqli_connect($host , $usuario, $senha, $banco);
-
-if(!$conexao) {
-    die("Erro ao conectar com banco de dados" . mysqli_connect_error());
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
 }
-
-
-?>
 
 

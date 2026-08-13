@@ -1,20 +1,14 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
-  background-color: red;
   overflow-x: hidden;
 }
 
 main {
   flex: 1;
+  padding-top: 130px;
 }
 
 .footer {
@@ -29,12 +23,11 @@ main {
   font-family: "Akt", arial;
 }
 
+.container {
+  font-family: "Akt", sans-serif;
+}
 .container h1 {
   font-family: "Instrument Serif", sans-serif;
-}
-.container {
-  padding-top: 130px;
-  font-family: "Akt", sans-serif;
 }
 .container h2 {
   color: #ff6f00;
@@ -105,12 +98,6 @@ h2 {
 
 .dropdown-menu {
   z-index: 2000 !important;
-}
-
-.container-card {
-  align-items: center;
-  display: flex;
-  justify-content: center;
 }
 
 .container-semana {

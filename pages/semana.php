@@ -15,26 +15,27 @@
               INNER JOIN marmita m ON m.id_marmita = dm.id_marmita
               ORDER BY d.id_dia";
 
-      $resultado = mysqli_query($conexao, $sql);
+      $stmt = $pdo->prepare($sql);
+      $stmt->execute();
 
-      while($marmita = mysqli_fetch_assoc($resultado)) {
+      while($marmita = $stmt->fetch(PDO::FETCH_ASSOC)) {
       ?>
 
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm border-2">
-          <img src="imgs/<?php echo $marmita['img_marmita']; ?>" class="card-img-top border-1" alt="Foto da Marmita">
+          <img src="imgs/<?php echo htmlspecialchars($marmita['img_marmita']); ?>" class="card-img-top border-1" alt="Foto da Marmita">
 
           <div class="card-body">
             <span class="badge bg-success mb-2">
-              <?php echo $marmita['nm_dia']; ?>
+              <?php echo htmlspecialchars($marmita['nm_dia']); ?>
             </span>
 
             <h5 class="card-title">
-              <?php echo $marmita['nm_marmita']; ?>
+              <?php echo htmlspecialchars($marmita['nm_marmita']); ?>
             </h5>
 
             <p class="card-text text-muted">
-              <?php echo $marmita['ds_marmita']; ?>
+              <?php echo htmlspecialchars($marmita['ds_marmita']); ?>
             </p>
 
             <p class="fw-bold text-success">
