@@ -43,6 +43,7 @@
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
               Cardápio
             </a>
+            
             <ul class="dropdown-menu" style="background-color: #2d6a4f;">
               <li><a class="dropdown-item" href="index.php?pagina=semana">Ver cardápio completo</a></li>
               <li><a class="dropdown-item" href="index.php?pagina=marmita&id=12">Feijoada</a></li>
@@ -55,6 +56,9 @@
               <li><a class="dropdown-item" href="index.php?pagina=marmita&id=14">Frango frito</a></li>
             </ul>
           </li>
+           <li class="nav-item">
+        <a class="nav-link" href="index.php?pagina=pedidos">Pedidos</a>
+      </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?pagina=contato">Contato</a>
           </li>
@@ -73,7 +77,9 @@
         </form>
 
       </div>
+     
     </div>
+    
   </nav>
 
 
