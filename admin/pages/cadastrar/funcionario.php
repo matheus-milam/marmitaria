@@ -1,8 +1,10 @@
 <?php
 if (!isset($pagina)) exit;
 
+$cargos = $pdo->query("SELECT id_cargo, nm_cargo FROM cargo ORDER BY nm_cargo")->fetchAll(PDO::FETCH_OBJ);
+
 if (!empty($id)) {
-    $sql = "SELECT id_funcionario, nm_funcionario, nm_cargo, nr_telefone, nr_salario FROM funcionario WHERE id_funcionario = :id LIMIT 1";
+    $sql = "SELECT id_funcionario, nm_funcionario, id_cargo, nr_telefone, nr_salario FROM funcionario WHERE id_funcionario = :id LIMIT 1";
     $consulta = $pdo->prepare($sql);
     $consulta->bindParam(":id", $id);
     $consulta->execute();
@@ -11,7 +13,7 @@ if (!empty($id)) {
 
 $id_funcionario = $dadosCadastro->id_funcionario ?? null;
 $nm_funcionario = $dadosCadastro->nm_funcionario ?? null;
-$nm_cargo = $dadosCadastro->nm_cargo ?? null;
+$id_cargo_selecionado = $dadosCadastro->id_cargo ?? null;
 $nr_telefone = $dadosCadastro->nr_telefone ?? null;
 $nr_salario = $dadosCadastro->nr_salario ?? null;
 ?>
@@ -35,7 +37,13 @@ $nr_salario = $dadosCadastro->nr_salario ?? null;
                 </div>
                 <div class="col-md-3">
                     <label class="form-label">Cargo</label>
-                    <input type="text" name="nm_cargo" class="form-control" required value="<?= htmlspecialchars($nm_cargo) ?>">
+                    <select name="id_cargo" class="form-select" required>
+                        <?php foreach ($cargos as $c) { ?>
+                            <option value="<?= $c->id_cargo ?>" <?= $c->id_cargo == $id_cargo_selecionado ? "selected" : "" ?>>
+                                <?= htmlspecialchars($c->nm_cargo) ?>
+                            </option>
+                        <?php } ?>
+                    </select>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label">Telefone</label>

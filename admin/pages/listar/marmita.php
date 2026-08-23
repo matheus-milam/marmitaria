@@ -25,7 +25,7 @@ $marmitas = $pdo->query("SELECT id_marmita, nm_marmita, ds_marmita, nr_preco, im
                             <p class="card-text"><?= htmlspecialchars($m->ds_marmita) ?></p>
                             <p class="card-text">R$ <?= number_format($m->nr_preco, 2, ',', '.') ?></p>
                             <a href="cadastrar/marmita?id=<?= $m->id_marmita ?>" class="btn btn-sm btn-warning">Editar</a>
-                            <a href="excluir/marmita?id=<?= $m->id_marmita ?>" class="btn btn-sm btn-danger">Excluir</a>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="excluir(<?= $m->id_marmita ?>)">Excluir</button>
                         </div>
                     </div>
                 </div>
@@ -33,3 +33,13 @@ $marmitas = $pdo->query("SELECT id_marmita, nm_marmita, ds_marmita, nr_preco, im
         </div>
     </div>
 </div>
+
+<script>
+function excluir(id) {
+
+    if (confirm("Tem certeza que deseja excluir este registro?")) {
+        location.href = "excluir/marmita?id=" + id;
+    }
+
+}
+</script>

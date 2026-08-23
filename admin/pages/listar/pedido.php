@@ -31,7 +31,7 @@ $pedidos = $pdo->query("
                                 <strong>Total: R$ <?= number_format($p->nr_preco * $p->nr_qnt, 2, ',', '.') ?></strong>
                             </p>
                             <a href="cadastrar/pedido?id=<?= $p->id_pedido ?>" class="btn btn-sm btn-warning">Editar</a>
-                            <a href="excluir/pedido?id=<?= $p->id_pedido ?>" class="btn btn-sm btn-danger">Excluir</a>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="excluir(<?= $p->id_pedido ?>)">Excluir</button>
                         </div>
                     </div>
                 </div>
@@ -39,3 +39,13 @@ $pedidos = $pdo->query("
         </div>
     </div>
 </div>
+
+<script>
+function excluir(id) {
+
+    if (confirm("Tem certeza que deseja excluir este registro?")) {
+        location.href = "excluir/pedido?id=" + id;
+    }
+
+}
+</script>

@@ -1,6 +1,5 @@
 <?php
-if (!isset($pasta)) exit;
-include "../conexao.php";
+if (!isset($pagina)) exit;
 
 if (!empty($id)) {
     $sql = "SELECT id_marmita, nm_marmita, ds_marmita, nr_preco, img_marmita FROM marmita WHERE id_marmita = :id LIMIT 1";

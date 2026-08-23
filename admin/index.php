@@ -14,7 +14,7 @@ if (!isset($_SESSION["admin_logado"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <base href="http://<?= $_SERVER["HTTP_HOST"] ?>/marmitaria/admin/">
+    <base href="http://localhost:8080/marmitaria/admin/">
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
