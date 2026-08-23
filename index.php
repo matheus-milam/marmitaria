@@ -85,15 +85,15 @@
 
 
     <main>
-      <?php
-    $pagina = $_GET["pagina"] ?? "home";
-    $pagina = "pages/{$pagina}.php";
+        <?php
+      $pagina = $_GET["pagina"] ?? "home";
+      $pagina = "pages/{$pagina}.php";
 
-if(file_exists($pagina)) {
-    include $pagina;
-}else {
-    include "pages/erro.php";
-}
+  if(file_exists($pagina)) {
+      include $pagina;
+  }else {
+      include "pages/erro.php";
+  }
 ?>
 </main>
 

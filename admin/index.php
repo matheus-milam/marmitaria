@@ -1,5 +1,7 @@
 <?php
 session_start();
+include "../conexao.php";
+include "functions.php";
 
 if (!isset($_SESSION["admin_logado"])) {
     header("Location: login.php");
@@ -11,6 +13,8 @@ if (!isset($_SESSION["admin_logado"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base href="http://<?= $_SERVER["HTTP_HOST"] ?>/marmitaria/admin/">
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +33,7 @@ if (!isset($_SESSION["admin_logado"])) {
 <body>
     <nav class="navbar navbar-expand-lg border-bottom shadow" style="background-color: #2f6d4e;" data-bs-theme="light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php?pagina=marmita">
+            <a class="navbar-brand" href="dashboard">
                 <img src="../imgs/logoheadermenor.png" alt="Sabor do Céu" width="70px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,13 +42,16 @@ if (!isset($_SESSION["admin_logado"])) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?pagina=marmita">Marmitas</a>
+                        <a class="nav-link" href="dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?pagina=pedido">Pedidos</a>
+                        <a class="nav-link" href="listar/marmita">Marmitas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?pagina=funcionario">Funcionários</a>
+                        <a class="nav-link" href="listar/pedido">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="listar/funcionario">Funcionários</a>
                     </li>
                 </ul>
                 <a href="logout.php" class="btn btn-outline-light">Sair</a>
@@ -53,17 +60,18 @@ if (!isset($_SESSION["admin_logado"])) {
     </nav>
 
     <main class="container mt-4">
-        <?php
-        $pagina = $_GET["pagina"] ?? "marmita";
-        $pagina = "pages/{$pagina}.php";
+      <?php
+    $pagina = $_GET["pagina"] ?? "listar/marmita";
+    $id = $_GET["id"] ?? null;
+    $pagina = "pages/{$pagina}.php";
 
-        if (file_exists($pagina)) {
-            include $pagina;
-        } else {
-            include "../pages/erro.php";
-        }
-        ?>
-    </main>
+if(file_exists($pagina)) {
+    include $pagina;
+}else {
+    include "pages/erro.php";
+}
+?>
+</main>
 
     <footer class="footer">
         <p>Sabor do Céu - Painel Administrativo | <?= date('Y') ?></p>

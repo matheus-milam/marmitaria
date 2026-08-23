@@ -36,11 +36,14 @@ if (isset($_POST["entrar"])) {
             <form method="POST">
                 <div class="mb-3">
                     <label class="form-label">E-mail</label>
-                    <input type="email" name="email" class="form-control" required>
+                    <input type="email" name="email" id="email" class="form-control" required
+                    data-parsley-required-message="Preencha o campo E-mail"
+                    data-parsley-type-message="Digite um E-mail válido">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Senha</label>
-                    <input type="password" name="senha" class="form-control" required>
+                    <input type="password" name="senha" id="senha" class="form-control" required
+                    data-parsley-required-message="Preencha o campo senha">
                 </div>
                 <button type="submit" name="entrar" class="btn btn-primary w-100">Entrar</button>
             </form>
