@@ -30,12 +30,12 @@ async function carregarDashboard(): Promise<void> {
 }
 
 function atualizarCards(pedidos: Pedido[]): void {
-    const elTotal = document.getElementById("faturamento-total");
-    const elDestaque = document.getElementById("marmita-destaque");
+    const vlTotal = document.getElementById("faturamento-total");
+    const mtDestaque = document.getElementById("marmita-destaque");
 
     if (pedidos.length === 0) {
-        if (elTotal) elTotal.innerText = formatarMoeda(0);
-        if (elDestaque) elDestaque.innerText = "Nenhum pedido registrado";
+        if (vlTotal) vlTotal.innerText = formatarMoeda(0);
+        if (mtDestaque) mtDestaque.innerText = "Nenhum pedido registrado";
         return;
     }
 
@@ -57,12 +57,12 @@ function atualizarCards(pedidos: Pedido[]): void {
         }
     }
 
-    if (elTotal) {
-        elTotal.innerText = formatarMoeda(faturamentoTotal);
+    if (vlTotal) {
+        vlTotal.innerText = formatarMoeda(faturamentoTotal);
     }
 
-    if (elDestaque) {
-        elDestaque.innerText = marmitaDestaque;
+    if (mtDestaque) {
+        mtDestaque.innerText = marmitaDestaque;
     }
 }
 
@@ -99,7 +99,7 @@ function renderizarPedidos(pedidos: Pedido[]): void {
         return;
     }
 
-    const html = pedidos.map((item) => {
+    const desenharPedidos = pedidos.map((item) => {
         const total = item.nr_preco * item.nr_qnt;
         return `
             <div class="col-md-4 mb-3">
@@ -118,7 +118,7 @@ function renderizarPedidos(pedidos: Pedido[]): void {
         `;
     }).join("");
 
-    container.innerHTML = html;
+    container.innerHTML = desenharPedidos;
 }
 
 function formatarMoeda(valor: number): string {

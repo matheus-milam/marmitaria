@@ -8,6 +8,7 @@
         $ds_marmita = trim($_POST["ds_marmita"] ?? NULL);
         $nr_preco = trim($_POST["nr_preco"] ?? NULL);
         $img_marmita = $_POST["img_atual"] ?? NULL;
+        $dias = $_POST["dias"] ?? [];
 
         if (empty($nm_marmita) || empty($nr_preco)) {
             echo "<script>alert('Preencha o nome e o preço');history.back();</script>";
@@ -32,6 +33,8 @@
                 $consulta->bindParam(":ds_marmita", $ds_marmita);
                 $consulta->bindParam(":nr_preco", $nr_preco);
                 $consulta->bindParam(":img_marmita", $img_marmita);
+                $consulta->execute();
+                $id_marmita = $pdo->lastInsertId();
             } else {
                 $sql = "update marmita set nm_marmita = :nm_marmita, ds_marmita = :ds_marmita, nr_preco = :nr_preco, img_marmita = :img_marmita where id_marmita = :id_marmita limit 1";
                 $consulta = $pdo->prepare($sql);
@@ -40,13 +43,21 @@
                 $consulta->bindParam(":nr_preco", $nr_preco);
                 $consulta->bindParam(":img_marmita", $img_marmita);
                 $consulta->bindParam(":id_marmita", $id_marmita);
+                $consulta->execute();
             }
 
-            if ($consulta->execute()) {
-                echo "<script>alert('Registro salvo');location.href='listar/marmita';</script>";
-            } else {
-                echo "<script>alert('Erro ao salvar');history.back();</script>";
+            $sqlLimpar = $pdo->prepare("delete from dia_marmita where id_marmita = :id_marmita");
+            $sqlLimpar->bindParam(":id_marmita", $id_marmita);
+            $sqlLimpar->execute();
+
+            foreach ($dias as $id_dia) {
+                $sqlDia = $pdo->prepare("insert into dia_marmita (id_dia, id_marmita) values (:id_dia, :id_marmita)");
+                $sqlDia->bindParam(":id_dia", $id_dia);
+                $sqlDia->bindParam(":id_marmita", $id_marmita);
+                $sqlDia->execute();
             }
+
+            echo "<script>alert('Registro salvo');location.href='listar/marmita';</script>";
 
         }
 
