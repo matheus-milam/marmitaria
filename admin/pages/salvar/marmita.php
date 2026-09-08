@@ -17,7 +17,7 @@
             if (!empty($_FILES["img_marmita"]["name"])) {
                 $extensao = pathinfo($_FILES["img_marmita"]["name"], PATHINFO_EXTENSION);
                 $nomeArquivo = uniqid("marmita_") . "." . $extensao;
-                $caminhoDestino = "../../../imgs/{$nomeArquivo}";
+                $caminhoDestino = "../imgs/{$nomeArquivo}";
 
                 if (move_uploaded_file($_FILES["img_marmita"]["tmp_name"], $caminhoDestino)) {
                     redimensionarImagem($caminhoDestino, 400, 400);

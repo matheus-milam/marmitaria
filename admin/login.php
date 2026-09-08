@@ -10,7 +10,7 @@ if (isset($_POST["entrar"])) {
 
     if ($email === $email_admin && $senha === $senha_admin) {
         $_SESSION["admin_logado"] = true;
-        header("Location: index.php?pagina=marmita");
+        header("Location: index.php?pagina=dashboard");
         exit;
     }else
 
